@@ -1,9 +1,10 @@
 const adContainerClasses = [
-  "add__fullwidth",
-  "ok-details-adv-in-left",
-  "okam-ad-position-wrap",
-  "nh_widget_wrap",
-  "ok-full-widht-adv",
+  "full-bigyaapan",
+  "bigyaapan-item",
+  "insert-ad",
+  "desktop-bigyaapan-only",
+  "top-bigyaapan",
+  "ad-item",
 ];
 
 adContainerClasses.forEach(function (item) {
