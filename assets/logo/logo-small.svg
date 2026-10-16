@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Simplified for 16/32px: flat fill, bolder eye and slash, no highlight -->
-  <path d="M64 4 L118 20 V58 C118 92 94 114 64 125 C34 114 10 92 10 58 V20 Z" fill="#A3301F"/>
-  <path d="M18 64 C32 42 46 34 64 34 C82 34 96 42 110 64 C96 86 82 94 64 94 C46 94 32 86 18 64 Z" fill="#FFF7F2"/>
-  <circle cx="64" cy="64" r="18" fill="#6E1E15"/>
-  <line x1="42" y1="90" x2="90" y2="36" stroke="#A3301F" stroke-width="22" stroke-linecap="round"/>
-  <line x1="42" y1="90" x2="90" y2="36" stroke="#FFF7F2" stroke-width="12" stroke-linecap="round"/>
+  <path d="M64 6 L116 22 V58 C116 92 93 113 64 124 C35 113 12 92 12 58 V22 Z" fill="#A3301F" stroke="#1E3A8A" stroke-width="12" stroke-linejoin="round"/>
+  
+    <path d="M27.9 65 C39.3 46.95 50.7 40.3 64 40.3 C77.3 40.3 88.7 46.95 100.1 65 C88.7 83.05 77.3 89.7 64 89.7 C50.7 89.7 39.3 83.05 27.9 65 Z" fill="#FFF7F2"/>
+    <circle cx="64" cy="65" r="16.15" fill="#6E1E15"/>
+    
+    <line x1="39.3" y1="91.6" x2="88.7" y2="38.400000000000006" stroke="#A3301F" stroke-width="22.799999999999997" stroke-linecap="round"/>
+    <line x1="39.3" y1="91.6" x2="88.7" y2="38.400000000000006" stroke="#FFF7F2" stroke-width="11.399999999999999" stroke-linecap="round"/>
 </svg>

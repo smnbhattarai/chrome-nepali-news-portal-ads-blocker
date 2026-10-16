@@ -1,23 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
     <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="123">
-      <stop offset="0" stop-color="#B83A2C"/>
-      <stop offset="1" stop-color="#7C2318"/>
+      <stop offset="0" stop-color="#B83A2C"/><stop offset="1" stop-color="#7C2318"/>
     </linearGradient>
-    <clipPath id="shield">
-      <path d="M64 6 L114 22 V58 C114 90 92 112 64 123 C36 112 14 90 14 58 V22 Z"/>
-    </clipPath>
+    <clipPath id="clip"><path d="M64 6 L114 22 V58 C114 90 92 112 64 123 C36 112 14 90 14 58 V22 Z"/></clipPath>
   </defs>
-  <!-- Shield -->
-  <path d="M64 6 L114 22 V58 C114 90 92 112 64 123 C36 112 14 90 14 58 V22 Z"
-        fill="url(#bg)" stroke="#5E1A12" stroke-width="3" stroke-linejoin="round"/>
-  <g clip-path="url(#shield)">
-    <!-- Eye -->
-    <path d="M24 64 C37 45 50 38 64 38 C78 38 91 45 104 64 C91 83 78 90 64 90 C50 90 37 83 24 64 Z" fill="#FFF7F2"/>
-    <circle cx="64" cy="64" r="15" fill="#6E1E15"/>
-    <circle cx="69" cy="59" r="4.5" fill="#FFF7F2"/>
-    <!-- Slash: a gap in the shield colour behind a white bar -->
-    <line x1="38" y1="92" x2="90" y2="36" stroke="url(#bg)" stroke-width="18" stroke-linecap="round"/>
-    <line x1="38" y1="92" x2="90" y2="36" stroke="#FFF7F2" stroke-width="8" stroke-linecap="round"/>
+  <path d="M64 6 L114 22 V58 C114 90 92 112 64 123 C36 112 14 90 14 58 V22 Z" fill="url(#bg)" stroke="#1E3A8A" stroke-width="7" stroke-linejoin="round"/>
+  <g clip-path="url(#clip)">
+    <path d="M57 18 L72.444 27.240000000000002 L64.722 27.240000000000002 L74.16 40 L57 40 Z" fill="#FFF7F2"/>
+    
+    <path d="M31.32 73 C41.64 56.66 51.96 50.64 64 50.64 C76.03999999999999 50.64 86.36 56.66 96.68 73 C86.36 89.34 76.03999999999999 95.36 64 95.36 C51.96 95.36 41.64 89.34 31.32 73 Z" fill="#FFF7F2"/>
+    <circle cx="64" cy="73" r="12.04" fill="#6E1E15"/>
+    <circle cx="68.3" cy="68.7" r="3.87" fill="#FFF7F2"/>
+    <line x1="44.22" y1="94.5" x2="83.78" y2="51.5" stroke="url(#bg)" stroke-width="15.48" stroke-linecap="round"/>
+    <line x1="44.22" y1="94.5" x2="83.78" y2="51.5" stroke="#FFF7F2" stroke-width="6.88" stroke-linecap="round"/>
   </g>
 </svg>
