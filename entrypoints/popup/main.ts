@@ -10,6 +10,7 @@ const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as 
 
 function localize() {
   document.documentElement.lang = locale;
+  document.title = t('extName');
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n as MessageKey);
   });
