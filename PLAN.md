@@ -14,9 +14,9 @@ It does **not** block network requests.
 | Site scope | **Only listed sites.** No generic `*.np` matching |
 | Phase 1 sites | **onlinekhabar.com** only |
 | Rule updates | **Remote updates from day one**: bundled rules + periodic fetch of a JSON rules file |
-| Rules host | Raw GitHub URL of this repo's `public/rules.json` (placeholder until pushed; see `src/config.ts`) |
+| Rules host | Raw GitHub URL of this repo's `rules/rules.json` (placeholder until pushed; see `src/config.ts`) |
 | UI language | **English and Nepali** (`_locales/en`, `_locales/ne`) |
-| Permissions | `storage`, `alarms` + host permissions for listed sites and the rules host |
+| Permissions | `storage`, `alarms` only. Content-script `matches` limit it to listed sites; the rules host allows CORS, so no host permissions |
 
 ## Why cosmetic-only fits Nepali sites
 
@@ -35,13 +35,16 @@ entrypoints/
   popup/                 # toolbar UI (EN/NE)
 src/
   config.ts              # remote rules URL, update interval
+  sites.ts               # listed domains → content-script match patterns
   rules/types.ts         # rule schema
   rules/validate.ts      # schema validation for remote rules
   rules/store.ts         # bundled + cached rules, update logic
-  engine/                # css injection, removal, popups, text/link matching, observer
+  engine/engine.ts       # css injection, removal, popups, text/link matching, observer
   settings.ts            # per-site enable/disable
-public/
+  messages.ts            # message types between popup, content and background
+rules/
   rules.json             # bundled rules (also the file served for remote updates)
+public/
   _locales/en, _locales/ne
 tests/                   # Vitest + jsdom fixture tests
 ```
@@ -63,7 +66,7 @@ One rules file with per-site entries. The engine is generic; sites are pure data
       "popups": [{ "overlay": ".popup", "close": ".popup-close" }],
       "unlockScroll": true,
       "textMatch": [{ "selector": ".widget", "contains": ["विज्ञापन", "Advertisement"] }],
-      "linkMatch": ["a[href*='sponsor.example'] img"]
+      "linkMatch": ["sponsor.example"]
     }
   ]
 }
@@ -76,7 +79,7 @@ One rules file with per-site entries. The engine is generic; sites are pure data
 | `popups` | Click close / remove overlay | DOM ready + mutations |
 | `unlockScroll` | Reset `overflow` on `html`/`body` | after popup handling |
 | `textMatch` | Hide blocks labelled "विज्ञापन"/"Advertisement" | mutations (throttled) |
-| `linkMatch` | Hide sponsor-linked images | mutations |
+| `linkMatch` | Hide links whose `href` contains a string and that wrap media | mutations |
 | `mainWorld` (phase 2) | Fixed, bundled JS guards toggled by flags | `document_start`, MAIN world |
 
 **Hide over remove** by default — cheaper, pre-paint, less likely to trip anti-adblock
@@ -86,6 +89,8 @@ or break layout scripts. `remove` only for overlays that block interaction.
 
 - Rules are **data only** (selectors + flags). No remote code is ever executed;
   main-world behaviours are bundled functions switched on/off by flags.
+- Selectors containing `{`, `}`, `;`, `@`, `<` or `/*` are rejected, since they are
+  injected into a stylesheet. Unparseable selectors are dropped individually.
 - Bundled `rules.json` works offline and on first install.
 - Background fetches the remote `rules.json` on install/startup and every 12h (`alarms`),
   validates it, and caches it in `storage.local` if its `version` is newer.
@@ -106,7 +111,8 @@ or break layout scripts. `remove` only for overlays that block interaction.
 ## Popup UI (EN/NE)
 
 - On/off toggle for the current site
-- Count of hidden ads on this page (+ badge)
+- Count of hidden ads on this page (+ badge). Only the outermost hidden block that
+  contains media (img/iframe/video/…) counts, so empty ad slots and nested wrappers don't inflate it
 - Rules version / last updated, "Update rules now"
 - Language follows browser locale (`browser.i18n`)
 
@@ -124,3 +130,15 @@ or break layout scripts. `remove` only for overlays that block interaction.
 | **2. Coverage** | Main-world guards, 10–20 sites (Ekantipur, Setopati, Ratopati, Nagarik, Hamro Patro, Kathmandu Post, Ujyaalo, Himalkhabar…), more fixtures |
 | **3. Community** | Report-missed-ad button, element picker for personal rules, Playwright CI |
 | **4. Publish** | Chrome Web Store + Firefox Add-ons, privacy policy (no data collected), EN/NE listings |
+
+## Phase 1 status
+
+Done: WXT scaffold (Chrome + Firefox MV3), rule engine, remote updates (12h alarm +
+"Update now"), popup with toggle/counter/rules info in EN/NE, onlinekhabar.com rules,
+Vitest fixture tests.
+
+Known gaps for onlinekhabar.com:
+- The site adds `*-body-enabled` classes to `<body>` when sticky header/footer ads
+  exist, which may leave padding behind. Needs a style-override rule type (phase 2).
+- Selectors were derived from the static HTML; ads injected by third-party scripts
+  (`.ok18-third-party-ad`) should be verified in a real browser.

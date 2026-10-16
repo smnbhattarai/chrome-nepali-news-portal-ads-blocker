@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated": "2026-10-16",
+  "sites": [
+    {
+      "id": "onlinekhabar",
+      "domains": ["onlinekhabar.com"],
+      "hide": [
+        ".okam-ad-position-wrap",
+        ".okam-each-ad",
+        ".ok18-third-party-ad",
+        ".ok-full-widht-adv",
+        ".add__fullwidth",
+        ".left_add",
+        ".ok-sidebar-ad",
+        ".ok-details-adv-in-left",
+        ".ok18-inbetween-ad",
+        ".ok18-inbetween-ad-2",
+        ".ok18-inbetween-mobile-ad",
+        ".ok18-inbetween-mobile-ad-2",
+        ".web-stories-ad-holder",
+        "#ok-box-ad-wrap",
+        "#ok18-roadblock-wrap",
+        ".ok_roadblock"
+      ],
+      "popups": [{ "overlay": ".ok_roadblock", "close": ".ok_roadblok_skip" }],
+      "unlockScroll": true
+    }
+  ]
+}

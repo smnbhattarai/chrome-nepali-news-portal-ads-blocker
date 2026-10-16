@@ -1,0 +1,18 @@
+{
+  "extName": { "message": "Nepali Ad Blocker" },
+  "extDescription": { "message": "Hides ads and popups on Nepali news websites." },
+  "siteToggle": { "message": "Block ads on this site" },
+  "adsHidden": { "message": "Ads hidden on this page" },
+  "notSupported": { "message": "This site isn't supported yet." },
+  "rulesVersion": { "message": "Rules version" },
+  "rulesBundled": { "message": "built-in" },
+  "rulesRemote": { "message": "updated" },
+  "lastChecked": { "message": "Last checked" },
+  "never": { "message": "never" },
+  "updateRules": { "message": "Update rules now" },
+  "updating": { "message": "Checking…" },
+  "updateUpdated": { "message": "Rules updated." },
+  "updateCurrent": { "message": "Rules are up to date." },
+  "updateSkipped": { "message": "Remote updates aren't configured yet." },
+  "updateError": { "message": "Couldn't update rules." }
+}

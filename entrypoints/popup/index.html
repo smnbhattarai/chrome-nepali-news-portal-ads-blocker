@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nepali Ad Blocker</title>
+    <meta name="manifest.default_title" content="__MSG_extName__" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1 data-i18n="extName"></h1>
+
+    <section id="site" hidden>
+      <label class="toggle">
+        <span data-i18n="siteToggle"></span>
+        <input type="checkbox" id="enabled" />
+      </label>
+      <p class="count">
+        <span data-i18n="adsHidden"></span>
+        <strong id="count">0</strong>
+      </p>
+    </section>
+    <p id="unsupported" class="muted" data-i18n="notSupported" hidden></p>
+
+    <footer>
+      <p class="muted">
+        <span data-i18n="rulesVersion"></span> <span id="version"></span>
+        · <span data-i18n="lastChecked"></span> <span id="last-check"></span>
+      </p>
+      <button id="update" data-i18n="updateRules"></button>
+      <p id="update-status" class="muted" aria-live="polite"></p>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "nepali-adblocker",
+  "description": "Hides ads and popups on Nepali websites",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "test": "vitest run",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "typescript": "~5.9",
+    "vitest": "^5.0.5",
+    "wxt": "^0.21.4"
+  }
+}

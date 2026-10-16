@@ -1,0 +1,18 @@
+{
+  "extName": { "message": "नेपाली एड ब्लकर" },
+  "extDescription": { "message": "नेपाली समाचार वेबसाइटका विज्ञापन र पपअपहरू लुकाउँछ।" },
+  "siteToggle": { "message": "यो साइटमा विज्ञापन रोक्नुहोस्" },
+  "adsHidden": { "message": "यो पेजमा लुकाइएका विज्ञापन" },
+  "notSupported": { "message": "यो साइट अहिले समर्थित छैन।" },
+  "rulesVersion": { "message": "नियम संस्करण" },
+  "rulesBundled": { "message": "बिल्ट-इन" },
+  "rulesRemote": { "message": "अद्यावधिक" },
+  "lastChecked": { "message": "पछिल्लो जाँच" },
+  "never": { "message": "कहिल्यै होइन" },
+  "updateRules": { "message": "नियम अहिले अद्यावधिक गर्नुहोस्" },
+  "updating": { "message": "जाँच गर्दै…" },
+  "updateUpdated": { "message": "नियम अद्यावधिक भयो।" },
+  "updateCurrent": { "message": "नियम पहिले नै अद्यावधिक छन्।" },
+  "updateSkipped": { "message": "रिमोट अपडेट अझै कन्फिगर गरिएको छैन।" },
+  "updateError": { "message": "नियम अद्यावधिक गर्न सकिएन।" }
+}
