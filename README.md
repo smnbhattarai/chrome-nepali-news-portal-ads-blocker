@@ -5,6 +5,40 @@ CSS and DOM rules (no network blocking). See [PLAN.md](PLAN.md) for the design.
 
 Phase 1 supports **onlinekhabar.com**.
 
+## Manual installation
+
+Build the extension first (requires Node 22+):
+
+```bash
+npm install
+npm run build            # Chrome  -> .output/chrome-mv3
+npm run build:firefox    # Firefox -> .output/firefox-mv3
+```
+
+### Chrome (and Edge, Brave, other Chromium browsers)
+
+1. Open `chrome://extensions` (`edge://extensions` in Edge).
+2. Turn on **Developer mode** (top-right toggle).
+3. Click **Load unpacked** and select the `.output/chrome-mv3` folder.
+4. Optional: pin the extension from the puzzle-piece menu in the toolbar.
+
+The extension stays installed across restarts. After rebuilding, click the reload
+icon on its card in `chrome://extensions` to pick up the changes.
+
+### Firefox (128 or newer)
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on…**.
+3. Select `.output/firefox-mv3/manifest.json`.
+
+Firefox removes temporary add-ons when it restarts, so repeat these steps after each
+restart. Release Firefox only installs signed extensions permanently; to keep an
+unsigned build installed, use Firefox Developer Edition or Nightly, set
+`xpinstall.signatures.required` to `false` in `about:config`, and install the zip
+from `npm run zip:firefox` via **about:addons → ⚙ → Install Add-on From File…**.
+
+After rebuilding, click **Reload** on the extension's entry in `about:debugging`.
+
 ## Development
 
 Requires Node 22+.
