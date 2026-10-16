@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Simplified for 16/32px: flat fill, bolder eye and slash, no highlight -->
+  <path d="M64 4 L118 20 V58 C118 92 94 114 64 125 C34 114 10 92 10 58 V20 Z" fill="#A3301F"/>
+  <path d="M18 64 C32 42 46 34 64 34 C82 34 96 42 110 64 C96 86 82 94 64 94 C46 94 32 86 18 64 Z" fill="#FFF7F2"/>
+  <circle cx="64" cy="64" r="18" fill="#6E1E15"/>
+  <line x1="42" y1="90" x2="90" y2="36" stroke="#A3301F" stroke-width="22" stroke-linecap="round"/>
+  <line x1="42" y1="90" x2="90" y2="36" stroke="#FFF7F2" stroke-width="12" stroke-linecap="round"/>
+</svg>
